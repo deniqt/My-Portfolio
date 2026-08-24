@@ -58,7 +58,7 @@
         .dc-logo { display: flex; align-items: center; gap: 8px; font-weight: 600; letter-spacing: 0.02em; }
         .dc-logo-mark { width: 28px; height: 28px; border: 1px solid var(--blue); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--blue-light); }
         .dc-nav-links { display: flex; gap: 28px; }
-        .dc-nav-link { color: var(--text-dim); text-decoration: none; font-size: 13.5px; cursor: pointer; letter-spacing: 0.02em; background: none; border: none; font-family: inherit; padding: 0; transition: color .2s; }
+        .dc-nav-link { color: var(--text-dim) !important; text-decoration: none; font-size: 13.5px; cursor: pointer; letter-spacing: 0.02em; background: none; border: none; font-family: inherit; padding: 0; transition: color .2s; }
         .dc-nav-link:hover { color: var(--text); }
         .dc-nav-cta { border: 1px solid var(--blue-dim); color: var(--blue-light); padding: 7px 14px; border-radius: 3px; font-size: 12.5px; text-decoration: none; letter-spacing: 0.03em; transition: all .2s; }
         .dc-nav-cta:hover { background: var(--blue-dim); border-color: var(--blue); }
