@@ -99,6 +99,7 @@ export default function Portfolio() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [visibleNodes, setVisibleNodes] = useState({});
+  const [aboutVisible, setAboutVisible] = useState(false);
   const nodeRefs = useRef([]);
 
   useEffect(() => {
@@ -120,6 +121,28 @@ export default function Portfolio() {
     nodeRefs.current.forEach((el) => el && obs.observe(el));
     return () => obs.disconnect();
   }, []);
+
+
+  /* ABOUT OBSERVER */
+    useEffect(() => {
+        const aboutGrid = document.querySelector(".dc-about-grid");
+
+        if (!aboutGrid) return;
+
+        const obs = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setAboutVisible(true);
+                    obs.disconnect();
+                }
+            },
+            { threshold: 0.25 }
+        );
+
+        obs.observe(aboutGrid);
+
+        return () => obs.disconnect();
+    }, []);
 
   const scrollTo = (id) => {
     setMenuOpen(false);
@@ -194,7 +217,7 @@ export default function Portfolio() {
             <h2 className="dc-section-title">About</h2>
             <div className="dc-section-line" />
           </div>
-          <div className="dc-about-grid">
+          <div className={`dc-about-grid ${aboutVisible ? "visible" : ""}`}>
             <p className="dc-about-text">
               I'm an IT student at <strong>Bulacan State University</strong> who
               spends most of his time building the quiet machinery behind small
