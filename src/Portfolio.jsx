@@ -75,12 +75,12 @@ const SKILL_GROUPS = [
 ];
 
 const EDUCATION = [
-  { period: "2025 — 2027", school: "Bulacan State University", detail: "BS, Information Technology", note: "Philippines" },
+  { period: "2025 — Present", school: "Bulacan State University", detail: "BS, Information Technology", note: "Philippines" },
   { period: "2021 — 2023", school: "La Consolacion University Philippines", detail: "TVL, Computer Programming", note: "Philippines" },
 ];
 
 const CERTS = [
-  { period: "2025 — 2027", name: "Spark, Strength, Sustain: Recabilation Consolanians in Digital Era", issuer: "LCUP · ICT Week Seminar" },
+  { period: "2023", name: "Spark, Strength, Sustain: Recabilation Consolanians in Digital Era", issuer: "LCUP · ICT Week Seminar" },
   { period: "2025", name: "Salesforce Supported Virtual Internship Program", issuer: "8-week virtual internship, Sep–Nov 2025" },
 ];
 
@@ -91,7 +91,7 @@ const CONTACT = {
   portfolio: "denieldelacruz.wordpress.com",
 };
 
-const NAV = ["About", "Pipeline", "Stack", "Education", "Contact"];
+const NAV = ["About", "Pipeline", "Stack","Education", "Contact"];
 
 // ---------------------------------------------------------------------------
 
@@ -341,6 +341,17 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* testimonials
+      <section className="dc-block" id="testimonials">
+              <div className="dc-section">
+                  <div className="dc-section-head">
+                    <span className="dc-section-num dc-mono">05</span>
+                    <h2 className="dc-section-title">Testimonials</h2>
+                    <div className="dc-section-line" />
+                  </div>
+              </div>
+      </section> */}
 
       {/* CONTACT */}
       <section className="dc-block" id="contact">

@@ -6,8 +6,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   return (
     <>
-      {loading && <IntroLoader onComplete={() => setLoading(false)} />}
-      <Portfolio />
+      {loading ? (
+        <IntroLoader onComplete={() => setLoading(false)} />
+      ) : (
+        <Portfolio />
+      )}
     </>
   );
 }

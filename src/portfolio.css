@@ -48,10 +48,17 @@
 
         /* NAV */
         .dc-nav {
-          position: sticky; top: 0; z-index: 40;
-          backdrop-filter: blur(10px);
-          background: rgba(8,11,17,0.72);
-          border-bottom: 1px solid var(--line);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            background: rgba(8, 11, 17, 0.72);
+            border-bottom: 1px solid var(--line);
         }
         .dc-nav-inner { max-width: 980px; margin: 0 auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
         @media (max-width: 480px) { .dc-nav-inner { padding: 14px 18px; } .dc-mobile-menu { padding: 8px 18px 20px; } }
@@ -74,7 +81,9 @@
         }
 
         /* HERO */
-        .dc-hero { padding: 110px 0 90px; }
+        .dc-hero {
+        padding: 140px 0 90px;
+        }
         @media (max-width: 480px) { .dc-hero { padding: 80px 18px 60px; } }
         .dc-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--blue-light); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; }
         .dc-dot { width: 7px; height: 7px; border-radius: 50%; background: #45d483; box-shadow: 0 0 0 3px rgba(69,212,131,0.15); animation: pulse 2s infinite; }
