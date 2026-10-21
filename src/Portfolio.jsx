@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Mail, Phone, MapPin, ArrowUpRight, Menu, X, Workflow, GitBranch } from "lucide-react";
-import "./portfolio.css"
+import "./portfolio.css";
+
 // ---------------------------------------------------------------------------
 // DATA — sourced from Deniel Dela Cruz's CV
 // ---------------------------------------------------------------------------
@@ -63,6 +64,23 @@ const EXPERIENCE = [
   },
 ];
 
+const PROJECTS = [
+  {
+    title: "YOSEF Tutorial Center Portal",
+    type: "Learning management platform",
+    url: "https://yousef-tutorial-center-portal.vercel.app/",
+    desc: "A portal that connects students and tutors, with schedules, assignments, learning materials, messaging, and academic progress tracking.",
+    tags: ["React", "Vite", "Vercel", "Student Portal"],
+  },
+  {
+    title: "We Create Order Tracker & Admin",
+    type: "Order tracking + admin management",
+    url: "https://wc-order-tracker.vercel.app/",
+    desc: "An order tracking system with an admin dashboard for managing client orders and their status, built for We Create Studio.",
+    tags: ["React", "Admin Dashboard", "Order Tracking", "Vercel"],
+  },
+];
+
 const SKILL_GROUPS = [
   {
     label: "Automation & Growth",
@@ -91,7 +109,7 @@ const CONTACT = {
   portfolio: "denieldelacruz.wordpress.com",
 };
 
-const NAV = ["About", "Pipeline", "Stack","Education", "Contact"];
+const NAV = ["About", "Pipeline", "Projects", "Stack", "Education", "Contact"];
 
 // ---------------------------------------------------------------------------
 
@@ -122,27 +140,24 @@ export default function Portfolio() {
     return () => obs.disconnect();
   }, []);
 
-
   /* ABOUT OBSERVER */
-    useEffect(() => {
-        const aboutGrid = document.querySelector(".dc-about-grid");
+  useEffect(() => {
+    const aboutGrid = document.querySelector(".dc-about-grid");
+    if (!aboutGrid) return;
 
-        if (!aboutGrid) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAboutVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
 
-        const obs = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setAboutVisible(true);
-                    obs.disconnect();
-                }
-            },
-            { threshold: 0.25 }
-        );
-
-        obs.observe(aboutGrid);
-
-        return () => obs.disconnect();
-    }, []);
+    obs.observe(aboutGrid);
+    return () => obs.disconnect();
+  }, []);
 
   const scrollTo = (id) => {
     setMenuOpen(false);
@@ -151,7 +166,6 @@ export default function Portfolio() {
 
   return (
     <div className="dc-root">
-
       <div className="dc-bg-grid" />
 
       {/* NAV */}
@@ -288,11 +302,46 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* PROJECTS */}
+      <section className="dc-block" id="projects">
+        <div className="dc-section">
+          <div className="dc-section-head">
+            <span className="dc-section-num dc-mono">03</span>
+            <h2 className="dc-section-title">Projects</h2>
+            <div className="dc-section-line" />
+          </div>
+          <div className="dc-project-grid">
+            {PROJECTS.map((p) => (
+              <a
+                className="dc-project-card"
+                key={p.title}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="dc-project-top">
+                  <span className="dc-project-type dc-mono">{p.type}</span>
+                  <ArrowUpRight size={18} className="dc-project-arrow" />
+                </div>
+                <h3 className="dc-project-title dc-display">{p.title}</h3>
+                <p className="dc-project-desc">{p.desc}</p>
+                <div className="dc-tag-row">
+                  {p.tags.map((t) => (
+                    <span className="dc-tag" key={t}>{t}</span>
+                  ))}
+                </div>
+                <span className="dc-project-link dc-mono">View live site →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SKILLS / STACK */}
       <section className="dc-block" id="stack">
         <div className="dc-section">
           <div className="dc-section-head">
-            <span className="dc-section-num dc-mono">03</span>
+            <span className="dc-section-num dc-mono">04</span>
             <h2 className="dc-section-title">Stack</h2>
             <div className="dc-section-line" />
           </div>
@@ -313,7 +362,7 @@ export default function Portfolio() {
       <section className="dc-block" id="education">
         <div className="dc-section">
           <div className="dc-section-head">
-            <span className="dc-section-num dc-mono">04</span>
+            <span className="dc-section-num dc-mono">05</span>
             <h2 className="dc-section-title">Education & certificates</h2>
             <div className="dc-section-line" />
           </div>
@@ -341,17 +390,6 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
-      {/* testimonials
-      <section className="dc-block" id="testimonials">
-              <div className="dc-section">
-                  <div className="dc-section-head">
-                    <span className="dc-section-num dc-mono">05</span>
-                    <h2 className="dc-section-title">Testimonials</h2>
-                    <div className="dc-section-line" />
-                  </div>
-              </div>
-      </section> */}
 
       {/* CONTACT */}
       <section className="dc-block" id="contact">
