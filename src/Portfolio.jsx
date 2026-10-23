@@ -209,9 +209,11 @@ export default function Portfolio() {
           </div>
         </div>
         <p className="dc-hero-desc">
-          I design and wire up the systems that turn traffic into leads —
-          WordPress builds on the front end, Make.com and Systeme.io running the
-          automations underneath. Based in Bulacan, Philippines.
+        I build responsive, user-friendly web applications with React
+        to help businesses streamline workflows, improve user experiences,
+        and bring their ideas to life. Based in Bulacan, Philippines.
+
+        Have a project in mind? Let’s build something great together.
         </p>
         <div className="dc-cta-row">
           <a className="dc-btn-primary" href={`mailto:${CONTACT.email}`}>
