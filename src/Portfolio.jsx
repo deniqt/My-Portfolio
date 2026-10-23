@@ -213,7 +213,7 @@ export default function Portfolio() {
         to help businesses streamline workflows, improve user experiences,
         and bring their ideas to life. Based in Bulacan, Philippines.
 
-        Have a project in mind? Let’s build something great together.
+        Have a project in mind? <strong>Let’s build something great together.</strong>
         </p>
         <div className="dc-cta-row">
           <a className="dc-btn-primary" href={`mailto:${CONTACT.email}`}>

@@ -95,6 +95,7 @@
 .dc-role-item::before { content: '--  '; color: var(--blue); font-family: 'JetBrains Mono', monospace; }
 
 .dc-hero-desc { max-width: 540px; color: var(--text-dim); font-size: 15.5px; line-height: 1.7; margin-bottom: 40px; }
+.dc-hero-desc strong{color: var(--blue-light)}
 
 .dc-cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
 @media (max-width: 480px) {
